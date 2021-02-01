@@ -23,26 +23,8 @@ def create_app():
     app = Flask(FLASK_APP_NAME)
     app.config.from_object(FLASK_CONFIG_MODULE)
 
-    # database_url = app.config.get('DATABASE_URL')
-    # database_url_read = app.config.get('REPLICA_DATABASE_URL')
-    #
-    # if not database_url:
-    #     raise Exception("Environment Exception: DATABASE_URL not set.")
-
-    # db.init_app(app)
-    # session = get_session(database_url)
-    # read_session = get_read_session(database_url_read)
-
-    # config_logger(app)
     create_restful_api(app)
 
-    # def close_session(response_or_exc):
-    #     session.remove()
-    #     read_session.remove()
-    #     return response_or_exc
-
-    # app.teardown_request(close_session)
-    # app.teardown_appcontext(close_session)
     return app
 
 
@@ -55,23 +37,6 @@ def create_test_app():
     app = Flask("FLASK_TEST_APP_NAME")
     app.config.from_object(FLASK_CONFIG_MODULE)
 
-    # database_url = app.config.get('DATABASE_URL')
-    #
-    # if not database_url:
-    #     raise Exception("Environment Exception: DATABASE_URL not set.")
-
-    # session = get_session(database_url)
-
-    # config_logger(app)
-
-    # create_restful_api(app)
-
-    # def close_session(response_or_exc):
-    #     session.remove()
-    #     return response_or_exc
-    #
-    # app.teardown_request(close_session)
-    # app.teardown_appcontext(close_session)
     return app
 
 
